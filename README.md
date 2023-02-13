@@ -36,3 +36,8 @@ Em seguida, para aplicar o modelo MVC,  criei as seguintes Packages :
 
 Dentro de cada uma criei os arquivos de Classe Java, e no Repository criei a Interface Java.
 
+Realizei o segundo commit "Packages criadas e banco de dados configurado".
+
+Contrui as entidades Bairro e Praia na package entity, com os atributos passados na documentação, e acrescentei a extensão JpaRepository dentro de cada repositório.
+
+Realizei o terceiro commit 
