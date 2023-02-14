@@ -6,4 +6,6 @@ import projetoavaliativo.com.br.LabBeach.entity.Praia;
 
 @Repository
 public interface PraiaRepository extends JpaRepository<Praia,Long> {
+
+    Boolean existsByNome(String nome);
 }
