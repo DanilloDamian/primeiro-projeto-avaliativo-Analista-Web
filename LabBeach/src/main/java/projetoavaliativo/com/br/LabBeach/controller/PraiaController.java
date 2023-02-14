@@ -34,11 +34,14 @@ public class PraiaController {
     public ResponseEntity<List<Praia>> praiasStatus() throws Exception {
         return ResponseEntity.ok(this.praiaService.findByStatus());
     }
+    @GetMapping("/acessibilidade")
+    public ResponseEntity<List<Praia>> praiasAcessiveis() throws Exception {
+        return ResponseEntity.ok(this.praiaService.findByAcessibilidade());
+    }
     @GetMapping("/{pop}")
     public ResponseEntity<List<Praia>> praiasPop(@PathVariable Integer pop) throws Exception {
         return ResponseEntity.ok(this.praiaService.findByPop(pop));
     }
-   
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable Long id) throws Exception{
