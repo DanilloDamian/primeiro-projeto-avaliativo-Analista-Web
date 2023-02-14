@@ -8,4 +8,5 @@ import projetoavaliativo.com.br.LabBeach.entity.Praia;
 public interface PraiaRepository extends JpaRepository<Praia,Long> {
 
     Boolean existsByNome(String nome);
+    Boolean existsByBairro_Id(Long id);
 }

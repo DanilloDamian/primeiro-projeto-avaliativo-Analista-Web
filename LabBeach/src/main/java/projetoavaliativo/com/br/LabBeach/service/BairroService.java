@@ -3,8 +3,11 @@ package projetoavaliativo.com.br.LabBeach.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import projetoavaliativo.com.br.LabBeach.entity.Bairro;
+import projetoavaliativo.com.br.LabBeach.entity.Praia;
 import projetoavaliativo.com.br.LabBeach.repository.BairroRepository;
+import projetoavaliativo.com.br.LabBeach.repository.PraiaRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,7 +16,8 @@ public class BairroService {
 
     @Autowired
     private BairroRepository bairroRepository;
-
+    @Autowired
+    private PraiaRepository praiaRepository;
     public Bairro salvar(Bairro bairro) throws Exception{
 
         if(bairro.getNome() == null || bairro.getNome().isEmpty()){
@@ -42,10 +46,10 @@ public class BairroService {
 
         if(!this.bairroRepository.existsById(id)){
             throw new Exception("Não existe bairro com este ID");
+        }if(this.praiaRepository.existsByBairro_Id(id)){
+            throw new Exception("Não pode deletar bairro que contenha praia cadastrada");
         }if(bairroFound != null){
             this.bairroRepository.deleteById(id);
         }
-        //IMPLEMENTAR "Não permitir deletar um bairro caso tenha uma praia cadastrada"
-
     }
 }

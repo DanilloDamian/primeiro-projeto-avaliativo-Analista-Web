@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import projetoavaliativo.com.br.LabBeach.entity.Bairro;
+import projetoavaliativo.com.br.LabBeach.entity.Praia;
 import projetoavaliativo.com.br.LabBeach.service.BairroService;
+import projetoavaliativo.com.br.LabBeach.service.PraiaService;
 
 import java.util.List;
 
@@ -14,6 +16,7 @@ public class BairroController {
 
     @Autowired
     private BairroService bairroService;
+
 
     @PostMapping
     public Bairro salvar(@RequestBody Bairro bairro) throws Exception{
