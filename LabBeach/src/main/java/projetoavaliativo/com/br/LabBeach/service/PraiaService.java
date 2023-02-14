@@ -51,6 +51,13 @@ public class PraiaService {
         }
         return praiaFound.get();
     }
+    public List<Praia> findByStatus()throws Exception{
+        return this.praiaRepository.findAllByStatus("propria");
+    }
+    public List<Praia> findByPop(Integer pop)throws Exception{
+        return this.praiaRepository.findByPop(pop);
+    }
+
 
     public List<Praia> listar(){
         return this.praiaRepository.findAll();
