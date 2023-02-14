@@ -19,9 +19,6 @@ public class BairroService {
         if(bairro.getNome() == null || bairro.getNome().isEmpty()){
             throw new Exception("Nome do bairro é obrigatório!");
         }
-        if(this.bairroRepository.existsById(bairro.getId())){
-            throw new Exception("Já existe bairro com este ID");
-        }
         if(this.bairroRepository.existsByNome(bairro.getNome())){
             throw new Exception("Já existe bairro com este nome");
         }
@@ -30,6 +27,14 @@ public class BairroService {
 
     public List<Bairro> listar(){
         return this.bairroRepository.findAll();
+    }
+
+    public Bairro findById(Long id) throws Exception{
+        Optional<Bairro> bairroFound = this.bairroRepository.findById(id);
+        if(!bairroFound.isPresent()){
+            throw new Exception("Bairro não encontrado");
+        }
+        return bairroFound.get();
     }
     public void deletar(Long id) throws Exception{
 

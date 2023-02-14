@@ -31,6 +31,11 @@ public class PraiaController {
         return ResponseEntity.ok(this.praiaService.listar());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Praia> findById(@PathVariable Long id) throws Exception {
+        return ResponseEntity.ok(this.praiaService.findById(id));
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable Long id) throws Exception{
         this.praiaService.deleteById(id);

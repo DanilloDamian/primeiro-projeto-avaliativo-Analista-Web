@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import projetoavaliativo.com.br.LabBeach.entity.Bairro;
 import projetoavaliativo.com.br.LabBeach.entity.Praia;
+import projetoavaliativo.com.br.LabBeach.repository.BairroRepository;
 import projetoavaliativo.com.br.LabBeach.repository.PraiaRepository;
 
 import java.util.List;
@@ -15,7 +16,11 @@ public class PraiaService {
     @Autowired
     private PraiaRepository praiaRepository;
 
+    @Autowired
+    private BairroService bairroService;
+
     public Praia salvar(Praia praia) throws Exception{
+        praia.setBairro(bairroService.findById(praia.getBairro().getId()));
         if(praia.getNome() == null || praia.getNome().isEmpty()){
             throw new Exception("Nome da praia é obrigatório!");
         }if(praia.getBairro() == null){
@@ -24,11 +29,7 @@ public class PraiaService {
             throw new Exception("Acessibilidade da praia é obrigatório!");
         }if(praia.getStatus() == null || praia.getStatus().isEmpty()){
             throw new Exception("Status da praia é obrigatório!");
-        }
-        if(this.praiaRepository.existsById(praia.getId())){
-            throw new Exception("Já existe bairro com este ID");
-        }
-        if(this.praiaRepository.existsByNome(praia.getNome())){
+        }if(this.praiaRepository.existsByNome(praia.getNome())){
             throw new Exception("Já existe praia com este nome");
         }
         return praiaRepository.save(praia);
@@ -37,7 +38,7 @@ public class PraiaService {
     public Praia editar(Long id, Praia praia) throws Exception{
         Praia praiaFound= findById(id);
         praiaFound.setNome(praia.getNome());
-        praiaFound.setBairro(praia.getBairro());
+        praiaFound.setBairro(bairroService.findById(praia.getBairro().getId()));
         praiaFound.setAcessibilidade(praia.getAcessibilidade());
         praiaFound.setStatus(praia.getStatus());
         return this.praiaRepository.save(praiaFound);
