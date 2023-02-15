@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 public class Bairro {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,5 +23,6 @@ public class Bairro {
 
     public Bairro(Long id) {
         this.id = id;
-    }
-}
+    };
+
+};

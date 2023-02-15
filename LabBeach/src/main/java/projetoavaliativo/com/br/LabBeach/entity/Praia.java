@@ -20,7 +20,9 @@ public class Praia {
     private Bairro bairro;
 
     private String nome;
+
     private String acessibilidade;
+
     private String status;
     
-}
+};

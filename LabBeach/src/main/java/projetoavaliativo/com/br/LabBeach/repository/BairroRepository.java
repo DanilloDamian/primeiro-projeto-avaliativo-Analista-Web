@@ -9,4 +9,4 @@ public interface BairroRepository extends JpaRepository<Bairro, Long> {
 
     Boolean existsByNome(String nome);
 
-}
+};

@@ -11,14 +11,14 @@ import java.util.List;
 public interface PraiaRepository extends JpaRepository<Praia,Long> {
 
     Boolean existsByNome(String nome);
+
     Boolean existsByBairro_Id(Long id);
 
     List<Praia> findAllByStatusEqualsIgnoreCase(String status);
+
     List<Praia> findPraiaByAcessibilidadeEqualsIgnoreCase(String acessibilidade);
 
     @Query("SELECT praia FROM Praia praia WHERE praia.bairro.populacao <= :pop")
     List<Praia> findByPop(Integer pop);
 
-
-
-}
+};
