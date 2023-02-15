@@ -24,7 +24,7 @@ public class BairroService {
         if(bairro.getNome() == null || bairro.getNome().isEmpty()){
             throw new Exception("Nome do bairro é obrigatório!");
         }
-        if(this.bairroRepository.existsByNome(bairro.getNome())){
+        if(this.bairroRepository.existsByNomeEqualsIgnoreCase(bairro.getNome())){
             throw new Exception("Já existe bairro com este nome");
         }
         return bairroRepository.save(bairro);

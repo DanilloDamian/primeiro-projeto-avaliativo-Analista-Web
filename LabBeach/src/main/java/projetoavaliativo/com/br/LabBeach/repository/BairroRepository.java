@@ -7,6 +7,6 @@ import projetoavaliativo.com.br.LabBeach.entity.Bairro;
 @Repository
 public interface BairroRepository extends JpaRepository<Bairro, Long> {
 
-    Boolean existsByNome(String nome);
+    Boolean existsByNomeEqualsIgnoreCase(String nome);
 
 };
