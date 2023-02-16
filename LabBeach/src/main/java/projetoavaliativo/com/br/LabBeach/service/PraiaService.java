@@ -14,7 +14,7 @@ public class PraiaService {
     @Autowired
     private PraiaRepository praiaRepository;
 
-
+    @Autowired
     private BairroService bairroService;
 
 
