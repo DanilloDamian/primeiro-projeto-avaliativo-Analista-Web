@@ -21,4 +21,4 @@ public interface PraiaRepository extends JpaRepository<Praia,Long> {
     @Query("SELECT praia FROM Praia praia WHERE praia.bairro.populacao <= :pop")
     List<Praia> findByPop(Integer pop);
 
-};
+}

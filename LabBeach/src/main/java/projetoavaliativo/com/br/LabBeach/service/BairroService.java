@@ -28,12 +28,12 @@ public class BairroService {
             throw new Exception("Já existe bairro com este nome");
         }
         return bairroRepository.save(bairro);
-    };
+    }
 
     public List<Bairro> listar(){
 
         return this.bairroRepository.findAll();
-    };
+    }
 
     public Bairro findById(Long id) throws Exception{
 
@@ -43,7 +43,7 @@ public class BairroService {
             throw new Exception("Bairro não encontrado");
         }
         return bairroFound.get();
-    };
+    }
 
     public void deletar(Long id) throws Exception{
 
@@ -55,7 +55,7 @@ public class BairroService {
             throw new Exception("Não pode deletar bairro que contenha praia cadastrada");
         }if(bairroFound != null){
             this.bairroRepository.deleteById(id);
-        };
-    };
+        }
+    }
 
-};
+}

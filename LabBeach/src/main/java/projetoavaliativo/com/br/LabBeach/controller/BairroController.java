@@ -20,19 +20,19 @@ public class BairroController {
     public Bairro salvar(@RequestBody Bairro bairro) throws Exception{
 
         return this.bairroService.salvar(bairro);
-    };
+    }
 
     @GetMapping
     public ResponseEntity<List<Bairro>> listar(){
 
         return ResponseEntity.ok(this.bairroService.listar());
-    };
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletar(@PathVariable Long id) throws Exception{
 
         this.bairroService.deletar(id);
         return ResponseEntity.ok().build();
-    };
+    }
 
-};
+}

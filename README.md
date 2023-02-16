@@ -53,7 +53,7 @@ No caminho do servidor, adicione  "*/bairros*", exemplo: `http://localhost:8080/
 ### Testando funcionalidades da Classe Praia
 
 No caminho do servidor, adicione  "*/praias*", exemplo: `http://localhost:8080/praias`.
-- Para **Cadastro**, selecionar método **POST** e no corpo da requisição inserir os atributos: bairro (apenas o ID), nome, acessibilidade e status. Todos os campos são **obrigatórios**. Para acessibilidade considerar valores: "Não Possui" ou "Possui". Para status considerar valores: "Propria" ou "Impropria". Exemplo: <br>
+- Para **Cadastro**, selecionar método **POST** e no corpo da requisição inserir os atributos: bairro (apenas o ID), nome, acessibilidade e status. Todos os campos são **obrigatórios**. Para acessibilidade considerar valores: "Nao Possui" ou "Possui". Para status considerar valores: "Propria" ou "Impropria". Exemplo: <br>
 `{
   "bairro":1,
   "nome": "Praia de Canasvieiras",
