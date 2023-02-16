@@ -20,8 +20,6 @@ public class PraiaService {
 
     public Praia salvar(Praia praia) throws Exception{
 
-        praia.setBairro(bairroService.findById(praia.getBairro().getId()));
-
         if(praia.getNome() == null || praia.getNome().isEmpty()){
             throw new Exception("Nome da praia é obrigatório!");
         }if(praia.getBairro() == null){
@@ -33,6 +31,9 @@ public class PraiaService {
         }if(this.praiaRepository.existsByNome(praia.getNome())){
             throw new Exception("Já existe praia com este nome");
         }
+
+        praia.setBairro(bairroService.findById(praia.getBairro().getId()));
+
         return praiaRepository.save(praia);
     }
 
