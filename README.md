@@ -66,7 +66,7 @@ No caminho do servidor, adicione  "*/praias*", exemplo: `http://localhost:8080/p
 `{
   "bairro":1,
   "nome": "Praia de Canasvieiras",
-    "acessibilidade": "Não possui",
+    "acessibilidade": "Nao possui",
     "status": "Impropria"
   }`.
 - Para **Exclusão**, selecionar o método **DELETE** e passar o **ID** da praia no caminho da requisição. Exemplo: `http://localhost:8080/praias/1`.
