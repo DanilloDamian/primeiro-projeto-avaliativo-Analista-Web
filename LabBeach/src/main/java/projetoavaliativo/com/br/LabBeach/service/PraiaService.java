@@ -44,7 +44,10 @@ public class PraiaService {
         praiaFound.setBairro(bairroService.findById(praia.getBairro().getId()));
         praiaFound.setAcessibilidade(praia.getAcessibilidade());
         praiaFound.setStatus(praia.getStatus());
-        return this.praiaRepository.save(praiaFound);
+
+        salvar(praiaFound);
+
+        return praiaFound;
     }
 
     public Praia findById(Long id) throws Exception{
